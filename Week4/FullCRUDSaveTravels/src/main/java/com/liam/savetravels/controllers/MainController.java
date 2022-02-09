@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 import com.liam.savetravels.models.Expense;
 import com.liam.savetravels.services.ExpenseService;
 
@@ -29,6 +30,13 @@ public class MainController {
 		return "index.jsp";
 	}
 	
+	@GetMapping("/show/{id}")
+	public String show(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("one", expenseServ.getOne(id));
+		
+		return "show.jsp";
+	}
+	
 	@GetMapping("/new")
 	public String newPage(@ModelAttribute("expense") Expense expense) {
 		return "create.jsp";
@@ -38,27 +46,38 @@ public class MainController {
 	
 	@PostMapping("/create")
 	public String create(@Valid @ModelAttribute("expense") Expense expense, BindingResult result, Model model ) {
-	if (result.hasErrors()) {
-		
+		if (result.hasErrors()) {	
 			model.addAttribute("all", expenseServ.getAll());
 			return "create.jsp";
-			}
+		}
 
 		expenseServ.createOne(expense);
 	    return "redirect:/";
 	}
 	
-	@GetMapping("/show/{id}")
-	public String show(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("one", expenseServ.getOne(id));
-		
-		return "show.jsp";
+	@GetMapping("/editpage/{id}")
+	public String editPage(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("expense", expenseServ.getOne(id));
+		return "edit.jsp";
 	}
 	
+	
+	
+	@PostMapping("/edit/{id}")
+	public String edit(@PathVariable("id") Long id, @Valid @ModelAttribute("expense") Expense expense,  BindingResult result, Model model) {
+		if (result.hasErrors()) {	
+			model.addAttribute("expense", expenseServ.getOne(id));
+			return "edit.jsp";
+		}
+
+		expenseServ.updateOne(expense);
+		return "redirect:/show/{id}";
+	}
+	
+	
 	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") Long id) {
+	public String delete(@PathVariable("id") Long id) {	
 		expenseServ.deleteOne(id);
-		
 		return "redirect:/";
 	}
 	

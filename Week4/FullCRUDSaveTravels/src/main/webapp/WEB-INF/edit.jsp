@@ -12,9 +12,12 @@
 </head>
 <body>
 		<div class="container d-flex flex-column justify-content-center align-items-center mt-2">
-		<h1 class="text-primary">Add an expense</h1>
-	<form:form class='card p-3 bg-light' action="/create" method="POST" modelAttribute="expense">
-	
+				<a href="/">Dashboard</a>
+		<h1 class="text-primary">Edit expense</h1>
+		
+		
+	<form:form class='card p-3 bg-light' action="/edit/${expense.id}" method="POST" modelAttribute="expense">
+
 		<div class="form-group">
 			<form:label path="name">Expense Name:</form:label>
 			<form:input path="name" />
@@ -40,7 +43,7 @@
 			<form:errors path="description" class="text-danger" />
 		</div>
 
-		<button>Create</button>
+		<button>Update</button>
 
 	</form:form>
 

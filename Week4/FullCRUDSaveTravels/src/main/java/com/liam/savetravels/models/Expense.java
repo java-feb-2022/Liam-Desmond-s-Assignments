@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -32,7 +32,8 @@ public class Expense {
 	@Size(min=3, message="Vendor name must be at least 3 characters long")
 	private String vendor;
 	
-	@NotNull
+	@NotNull(message="must enter amount")
+	@Min(value=1, message="amount must be at least 1.00")
 	private double amount;
 	
 	

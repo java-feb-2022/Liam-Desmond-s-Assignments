@@ -34,7 +34,7 @@
 					<td>${x.vendor}</td>
 					<td>${x.amount}</td>
 					<td>${x.description}</td>
-					<td><a href="delete/${x.id}">Delete</a></td>
+					<td><a href="/editpage/${x.id}">Edit</a>|<a href="delete/${x.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 			</tbody>
