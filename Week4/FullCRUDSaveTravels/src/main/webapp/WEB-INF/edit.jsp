@@ -16,7 +16,7 @@
 		<h1 class="text-primary">Edit expense</h1>
 		
 		
-	<form:form class='card p-3 bg-light' action="/edit/${expense.id}" method="POST" modelAttribute="expense">
+	<form:form class='card p-3 bg-light' action="/edit/${expense.id}" method="PUT" modelAttribute="expense">
 
 		<div class="form-group">
 			<form:label path="name">Expense Name:</form:label>

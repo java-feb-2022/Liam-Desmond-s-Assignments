@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.liam.savetravels.models.Expense;
 import com.liam.savetravels.services.ExpenseService;
@@ -63,10 +63,10 @@ public class MainController {
 	
 	
 	
-	@PostMapping("/edit/{id}")
+	@PutMapping("/edit/{id}")
 	public String edit(@PathVariable("id") Long id, @Valid @ModelAttribute("expense") Expense expense,  BindingResult result, Model model) {
 		if (result.hasErrors()) {	
-			model.addAttribute("expense", expenseServ.getOne(id));
+//			model.addAttribute("expense", expenseServ.getOne(id));
 			return "edit.jsp";
 		}
 
