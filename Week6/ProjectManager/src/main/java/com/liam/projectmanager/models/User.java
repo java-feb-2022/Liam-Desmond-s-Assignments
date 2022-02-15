@@ -73,7 +73,7 @@ public class User {
 	private List<Project> projects;
 	
 	
-	// Many to Many with Fields in between
+	// Many to Many
 	@OneToMany(mappedBy="userTask", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Task> tasks;
 	
