@@ -22,7 +22,7 @@
 	<div class="container">
 	
 			<button onclick="location.href=`/newSerfForm`" class="btn btn-success mb-2">Add Project</button>
-<!-- 			<p><a href="/newSideForm" class="btn btn-primary">Add an accessory</a></p>	 -->
+
 
 
 		<table class="table table-dark">
@@ -36,7 +36,7 @@
 			</tr>
 			</thead>
 			
-			<tbody> <!-- Loop through all dogs -->
+			<tbody>
 			<c:forEach items="${allSerfs}" var="x">
 			<c:choose>
 			<c:when test="${x.owners.contains(userLog)}">
@@ -44,42 +44,21 @@
 			</c:when>
 			<c:otherwise>
 
-			<%-- <c:if test="${x.owners != userLog.id}"> --%>
+
 			<tr>
 				<td>${x.id}</td>
 
 				<td><a href="/serf/show/${x.id}">${x.title}</a></td>
 				<td><fmt:formatDate value="${x.date}" pattern="MMM dd, yyyy"/></td>
-<%-- 				<c:forEach var="x" items="${x.owners}">
-				    <c:out value="${x.firstName}"/>
-				 </c:forEach> --%>
-<%--  				<td><a href="/user/show/${x.tasks.userTask.id}">${x.tasks.userTask.firstName}</a></td> --%>
-				<td>${x.tasks.size()}</td>
-<%-- 				<c:choose>
-					<c:when test="${x.owners.id == userLog.id}">
-					<td><a href="/serf/show/${x.id}">${x.title}</a></td>
-					</c:when>
 
-					<c:if test="${x.owners.contains(userLog.id)}">
-						<td><a href="/edit/serf/${x.id}">Edit</a>|<a href="/delete/serf/${x.id}">Delete</a></td>
-					</c:if>
-						
-					
-					<c:otherwise>
-						<td><a href="/borrow/${x.id}">Join</a></td>
-					</c:otherwise>
-				
-				</c:choose> --%>
-				
-<%-- 					<c:if test="${x.owners.contains(userLog.id)}">
-						<td><a href="/edit/serf/${x.id}">Edit</a>|<a href="/delete/serf/${x.id}">Delete</a></td>
-					</c:if> --%>
+				<td>${x.tasks.size()}</td>
+
 
 				<td><a href="/borrow/${x.id}">Join</a></td>
 
 			</tr>
 			
-<%-- 			</c:if> --%>
+
 			</c:otherwise>
 			</c:choose>
 			</c:forEach>
