@@ -161,29 +161,7 @@ public class MainController {
 	}
 
 
-////	   ____                __           ____           
-////	  / __ \____  ___     / /_____     / __ \____  ___ 
-////	 / / / / __ \/ _ \   / __/ __ \   / / / / __ \/ _ \
-////	/ /_/ / / / /  __/  / /_/ /_/ /  / /_/ / / / /  __/
-////	\____/_/ /_/\___/   \__/\____/   \____/_/ /_/\___/ 
-////	                                                   
-//
-//	
-//	// Add one to Main Processing
-//	@PostMapping("/addOneToOne/{id}")
-//	public String addOneToOne(@PathVariable("id") Long id,@Valid @ModelAttribute("title") Title title, BindingResult result, Model model, HttpSession session) {
-//		if (result.hasErrors()) {
-//			Long userId = (Long) session.getAttribute("user_id");
-//
-//
-//			model.addAttribute("userLog", userServ.getUser(userId));
-//			model.addAttribute("project", mainServ.getOne(id));
-//			return "showSerf.jsp";
-//		}
-//		soloServ.createOne(title);
-//		return "redirect:/serf/show/{id}";
-//		
-//	}
+
 
 
 
@@ -232,38 +210,7 @@ public class MainController {
 	}
 
 
-//	 _______                         ______      _______                    
-//	|   |   |.---.-.-----.--.--.    |__    |    |   |   |.---.-.-----.--.--.
-//	|       ||  _  |     |  |  |    |    __|    |       ||  _  |     |  |  |
-//	|__|_|__||___._|__|__|___  |    |______|    |__|_|__||___._|__|__|___  |
-//	                     |_____|                                     |_____|
 
-
-	
-//	// User M2M Serf Process
-//	@GetMapping("/like/{id}")
-//	public String RSVP(@PathVariable("id") Long id, HttpSession session) {
-//		Long userId = (Long) session.getAttribute("user_id");
-//		User liker = userServ.getUser(userId);
-//
-//		Project likedOne = mainServ.getOne(id);
-//		mainServ.addExtra(liker, likedOne);
-//		
-//		return "redirect:/dashboard";
-//	}
-//	
-//	
-//	// User M2M Serf Process undo
-//	@GetMapping("/unlike/{id}")
-//	public String unRSVP(@PathVariable("id") Long id, HttpSession session) {
-//		Long userId = (Long) session.getAttribute("user_id");
-//		User liker = userServ.getUser(userId);
-//
-//		Project likedOne = mainServ.getOne(id);
-//		mainServ.removeExtra(liker, likedOne);
-//		
-//		return "redirect:/dashboard";
-//	}
 	
 
 
